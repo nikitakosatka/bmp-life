@@ -145,7 +145,7 @@ void saveBMP(BMPImage bmp, FILE *output) {
                 bmp.data[currentPosition] = currentByte;
                 currentPosition++;
                 currentByte = 0;
-                //                mask = 0x80;
+                mask = 0x80;
             }
         }
         while ((currentPosition) % 4 != 0) {
@@ -166,7 +166,7 @@ void run(BMPImage bmp, int maxIter, int dumpFreq, int isShow, char outdir[255]) 
                 show(bmp.image, bmp.width, bmp.height);
             }
 
-            char *filepath = malloc(255);
+            char *filepath = calloc(sizeof(char), 255);
             char number[10];
             sprintf(number, "%d", i);
 
